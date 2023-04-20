@@ -1,0 +1,62 @@
+﻿<Window x:Class="AutoDealer.PhotoCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="" Height="400" Width="500" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
+    <Window.Background>
+        <ImageBrush ImageSource="CarImage\bg.jpg" x:Name="iB_Background"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="SpellCheck.IsEnabled" Value="True"/>
+            <Setter Property="Language" Value="ru-ru"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="imgcar" Margin="5">
+            
+        </Image>
+
+        <TextBlock Grid.Row="1">Характеристики</TextBlock>
+
+        <TextBox IsReadOnly="True" x:Name="special" HorizontalAlignment="Center" Height="80" Width="400" Grid.Row="2"
+                   FontFamily="TimesNewRoman" Foreground="Black" FontSize="14" Background="WhiteSmoke" TextWrapping="Wrap"
+                   ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+
+        </TextBox>
+
+        <Button x:Name="BtnCancel" Content="Закрыть" Click="BtnCancel_click" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center"/>
+
+    </Grid>
+</Window>

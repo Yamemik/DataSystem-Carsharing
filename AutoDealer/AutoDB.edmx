@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище AutoDealerModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddService">
+          <Key>
+            <PropertyRef Name="as_id" />
+          </Key>
+          <Property Name="as_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="as_enu" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="as_sum" Type="float" />
+        </EntityType>
+        <EntityType Name="BlackList">
+          <Key>
+            <PropertyRef Name="bl_id" />
+          </Key>
+          <Property Name="bl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bl_client" Type="int" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_mark" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_specific" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="c_photo" Type="image" />
+          <Property Name="c_tariff" Type="int" Nullable="false" />
+          <Property Name="c_as" Type="int" Nullable="false" />
+          <Property Name="c_employee" Type="int" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="cl_id" />
+          </Key>
+          <Property Name="cl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cl_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cl_tel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cl_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cl_passport" Type="int" Nullable="false" />
+          <Property Name="cl_driver" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="con_id" />
+          </Key>
+          <Property Name="con_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="con_long" Type="int" Nullable="false" />
+          <Property Name="con_if" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="con_cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="con_car" Type="int" Nullable="false" />
+          <Property Name="con_client" Type="int" Nullable="false" />
+          <Property Name="con_date" Type="date" Nullable="false" />
+          <Property Name="con_sum" Type="float" />
+          <Property Name="con_dateend" Type="date" />
+        </EntityType>
+        <EntityType Name="DriverLicense">
+          <Key>
+            <PropertyRef Name="dl_id" />
+          </Key>
+          <Property Name="dl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dl_series" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="dl_number" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="dl_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="e_id" />
+          </Key>
+          <Property Name="e_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="e_family" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="e_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="e_patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="e_birthday" Type="date" Nullable="false" />
+          <Property Name="e_position" Type="int" Nullable="false" />
+          <Property Name="e_passport" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogUser">
+          <Key>
+            <PropertyRef Name="lu_id" />
+          </Key>
+          <Property Name="lu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lu_empl" Type="int" Nullable="false" />
+          <Property Name="lu_login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lu_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ps_series" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ps_number" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ps_whom" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ps_when" Type="date" Nullable="false" />
+          <Property Name="ps_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_bet" Type="float" Nullable="false" />
+          <Property Name="p_salary" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="t_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="t_enu" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="t_sum" Type="float" />
+        </EntityType>
+        <Association Name="fk_as_c">
+          <End Role="AddService" Type="Self.AddService" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddService">
+              <PropertyRef Name="as_id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="c_as" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_as_con">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cl_id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="con_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bl_cl">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="BlackList" Type="Self.BlackList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cl_id" />
+            </Principal>
+            <Dependent Role="BlackList">
+              <PropertyRef Name="bl_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dl_cl">
+          <End Role="DriverLicense" Type="Self.DriverLicense" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DriverLicense">
+              <PropertyRef Name="dl_id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="cl_driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_empl_pos">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="e_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_loguser_empl">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="LogUser" Type="Self.LogUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="e_id" />
+            </Principal>
+            <Dependent Role="LogUser">
+              <PropertyRef Name="lu_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_p_cl">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="cl_passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_t_c">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="c_tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_t_con">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="c_id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="con_car" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище AutoDealerModelContainer">
+          <EntitySet Name="AddService" EntityType="Self.AddService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlackList" EntityType="Self.BlackList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DriverLicense" EntityType="Self.DriverLicense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogUser" EntityType="Self.LogUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tariff" EntityType="Self.Tariff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_as_c" Association="Self.fk_as_c">
+            <End Role="AddService" EntitySet="AddService" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="fk_as_con" Association="Self.fk_as_con">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bl_cl" Association="Self.fk_bl_cl">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="BlackList" EntitySet="BlackList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dl_cl" Association="Self.fk_dl_cl">
+            <End Role="DriverLicense" EntitySet="DriverLicense" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_empl_pos" Association="Self.fk_empl_pos">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="fk_loguser_empl" Association="Self.fk_loguser_empl">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="LogUser" EntitySet="LogUser" />
+          </AssociationSet>
+          <AssociationSet Name="fk_p_cl" Association="Self.fk_p_cl">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_t_c" Association="Self.fk_t_c">
+            <End Role="Tariff" EntitySet="Tariff" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="fk_t_con" Association="Self.fk_t_con">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutoDealerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AddService">
+          <Key>
+            <PropertyRef Name="as_id" />
+          </Key>
+          <Property Name="as_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="as_enu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.fk_as_c" FromRole="AddService" ToRole="Car" />
+          <Property Name="as_sum" Type="Double" />
+        </EntityType>
+        <EntityType Name="BlackList">
+          <Key>
+            <PropertyRef Name="bl_id" />
+          </Key>
+          <Property Name="bl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bl_client" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.fk_bl_cl" FromRole="BlackList" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_mark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_specific" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="c_tariff" Type="Int32" Nullable="false" />
+          <Property Name="c_as" Type="Int32" Nullable="false" />
+          <Property Name="c_employee" Type="Int32" />
+          <NavigationProperty Name="AddService" Relationship="Self.fk_as_c" FromRole="Car" ToRole="AddService" />
+          <NavigationProperty Name="Tariff" Relationship="Self.fk_t_c" FromRole="Car" ToRole="Tariff" />
+          <NavigationProperty Name="Contract" Relationship="Self.fk_t_con" FromRole="Car" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="cl_id" />
+          </Key>
+          <Property Name="cl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cl_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cl_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cl_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cl_passport" Type="Int32" Nullable="false" />
+          <Property Name="cl_driver" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BlackList" Relationship="Self.fk_bl_cl" FromRole="Client" ToRole="BlackList" />
+          <NavigationProperty Name="Contract" Relationship="Self.fk_as_con" FromRole="Client" ToRole="Contract" />
+          <NavigationProperty Name="DriverLicense" Relationship="Self.fk_dl_cl" FromRole="Client" ToRole="DriverLicense" />
+          <NavigationProperty Name="Passport" Relationship="Self.fk_p_cl" FromRole="Client" ToRole="Passport" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="con_id" />
+          </Key>
+          <Property Name="con_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="con_long" Type="Int32" Nullable="false" />
+          <Property Name="con_if" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="con_cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="con_car" Type="Int32" Nullable="false" />
+          <Property Name="con_client" Type="Int32" Nullable="false" />
+          <Property Name="con_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Car" Relationship="Self.fk_t_con" FromRole="Contract" ToRole="Car" />
+          <NavigationProperty Name="Client" Relationship="Self.fk_as_con" FromRole="Contract" ToRole="Client" />
+          <Property Name="con_sum" Type="Double" />
+          <Property Name="con_dateend" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="DriverLicense">
+          <Key>
+            <PropertyRef Name="dl_id" />
+          </Key>
+          <Property Name="dl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dl_series" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dl_number" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dl_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Client" Relationship="Self.fk_dl_cl" FromRole="DriverLicense" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="e_id" />
+          </Key>
+          <Property Name="e_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="e_family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="e_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="e_patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="e_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="e_position" Type="Int32" Nullable="false" />
+          <Property Name="e_passport" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.fk_empl_pos" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="LogUser" Relationship="Self.fk_loguser_empl" FromRole="Employee" ToRole="LogUser" />
+        </EntityType>
+        <EntityType Name="LogUser">
+          <Key>
+            <PropertyRef Name="lu_id" />
+          </Key>
+          <Property Name="lu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lu_empl" Type="Int32" Nullable="false" />
+          <Property Name="lu_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lu_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.fk_loguser_empl" FromRole="LogUser" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ps_series" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ps_number" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ps_whom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ps_when" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ps_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.fk_p_cl" FromRole="Passport" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="p_bet" Type="Double" Nullable="false" />
+          <Property Name="p_salary" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.fk_empl_pos" FromRole="Position" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="t_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="t_enu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.fk_t_c" FromRole="Tariff" ToRole="Car" />
+          <Property Name="t_sum" Type="Double" />
+        </EntityType>
+        <Association Name="fk_as_c">
+          <End Role="AddService" Type="Self.AddService" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddService">
+              <PropertyRef Name="as_id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="c_as" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bl_cl">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="BlackList" Type="Self.BlackList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cl_id" />
+            </Principal>
+            <Dependent Role="BlackList">
+              <PropertyRef Name="bl_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_t_c">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="c_tariff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_t_con">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="c_id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="con_car" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_as_con">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="cl_id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="con_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dl_cl">
+          <End Role="DriverLicense" Type="Self.DriverLicense" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DriverLicense">
+              <PropertyRef Name="dl_id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="cl_driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_p_cl">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="cl_passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_empl_pos">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="e_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_loguser_empl">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="LogUser" Type="Self.LogUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="e_id" />
+            </Principal>
+            <Dependent Role="LogUser">
+              <PropertyRef Name="lu_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutoDealerEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddService" EntityType="Self.AddService" />
+          <EntitySet Name="BlackList" EntityType="Self.BlackList" />
+          <EntitySet Name="Car" EntityType="Self.Car" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" />
+          <EntitySet Name="DriverLicense" EntityType="Self.DriverLicense" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="LogUser" EntityType="Self.LogUser" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tariff" EntityType="Self.Tariff" />
+          <AssociationSet Name="fk_as_c" Association="Self.fk_as_c">
+            <End Role="AddService" EntitySet="AddService" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bl_cl" Association="Self.fk_bl_cl">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="BlackList" EntitySet="BlackList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_t_c" Association="Self.fk_t_c">
+            <End Role="Tariff" EntitySet="Tariff" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="fk_t_con" Association="Self.fk_t_con">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="fk_as_con" Association="Self.fk_as_con">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dl_cl" Association="Self.fk_dl_cl">
+            <End Role="DriverLicense" EntitySet="DriverLicense" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_p_cl" Association="Self.fk_p_cl">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="fk_empl_pos" Association="Self.fk_empl_pos">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="fk_loguser_empl" Association="Self.fk_loguser_empl">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="LogUser" EntitySet="LogUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AutoDealerModelContainer" CdmEntityContainer="AutoDealerEntities1">
+          <EntitySetMapping Name="AddService">
+            <EntityTypeMapping TypeName="AutoDealerModel.AddService">
+              <MappingFragment StoreEntitySet="AddService">
+                <ScalarProperty Name="as_sum" ColumnName="as_sum" />
+                <ScalarProperty Name="as_id" ColumnName="as_id" />
+                <ScalarProperty Name="as_enu" ColumnName="as_enu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlackList">
+            <EntityTypeMapping TypeName="AutoDealerModel.BlackList">
+              <MappingFragment StoreEntitySet="BlackList">
+                <ScalarProperty Name="bl_id" ColumnName="bl_id" />
+                <ScalarProperty Name="bl_client" ColumnName="bl_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car">
+            <EntityTypeMapping TypeName="AutoDealerModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="c_mark" ColumnName="c_mark" />
+                <ScalarProperty Name="c_name" ColumnName="c_name" />
+                <ScalarProperty Name="c_specific" ColumnName="c_specific" />
+                <ScalarProperty Name="c_photo" ColumnName="c_photo" />
+                <ScalarProperty Name="c_tariff" ColumnName="c_tariff" />
+                <ScalarProperty Name="c_as" ColumnName="c_as" />
+                <ScalarProperty Name="c_employee" ColumnName="c_employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="AutoDealerModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="cl_id" ColumnName="cl_id" />
+                <ScalarProperty Name="cl_name" ColumnName="cl_name" />
+                <ScalarProperty Name="cl_tel" ColumnName="cl_tel" />
+                <ScalarProperty Name="cl_address" ColumnName="cl_address" />
+                <ScalarProperty Name="cl_passport" ColumnName="cl_passport" />
+                <ScalarProperty Name="cl_driver" ColumnName="cl_driver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract">
+            <EntityTypeMapping TypeName="AutoDealerModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="con_dateend" ColumnName="con_dateend" />
+                <ScalarProperty Name="con_sum" ColumnName="con_sum" />
+                <ScalarProperty Name="con_id" ColumnName="con_id" />
+                <ScalarProperty Name="con_long" ColumnName="con_long" />
+                <ScalarProperty Name="con_if" ColumnName="con_if" />
+                <ScalarProperty Name="con_cost" ColumnName="con_cost" />
+                <ScalarProperty Name="con_car" ColumnName="con_car" />
+                <ScalarProperty Name="con_client" ColumnName="con_client" />
+                <ScalarProperty Name="con_date" ColumnName="con_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DriverLicense">
+            <EntityTypeMapping TypeName="AutoDealerModel.DriverLicense">
+              <MappingFragment StoreEntitySet="DriverLicense">
+                <ScalarProperty Name="dl_id" ColumnName="dl_id" />
+                <ScalarProperty Name="dl_series" ColumnName="dl_series" />
+                <ScalarProperty Name="dl_number" ColumnName="dl_number" />
+                <ScalarProperty Name="dl_date" ColumnName="dl_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="AutoDealerModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="e_id" ColumnName="e_id" />
+                <ScalarProperty Name="e_family" ColumnName="e_family" />
+                <ScalarProperty Name="e_name" ColumnName="e_name" />
+                <ScalarProperty Name="e_patronymic" ColumnName="e_patronymic" />
+                <ScalarProperty Name="e_birthday" ColumnName="e_birthday" />
+                <ScalarProperty Name="e_position" ColumnName="e_position" />
+                <ScalarProperty Name="e_passport" ColumnName="e_passport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogUser">
+            <EntityTypeMapping TypeName="AutoDealerModel.LogUser">
+              <MappingFragment StoreEntitySet="LogUser">
+                <ScalarProperty Name="lu_id" ColumnName="lu_id" />
+                <ScalarProperty Name="lu_empl" ColumnName="lu_empl" />
+                <ScalarProperty Name="lu_login" ColumnName="lu_login" />
+                <ScalarProperty Name="lu_password" ColumnName="lu_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passport">
+            <EntityTypeMapping TypeName="AutoDealerModel.Passport">
+              <MappingFragment StoreEntitySet="Passport">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="ps_series" ColumnName="ps_series" />
+                <ScalarProperty Name="ps_number" ColumnName="ps_number" />
+                <ScalarProperty Name="ps_whom" ColumnName="ps_whom" />
+                <ScalarProperty Name="ps_when" ColumnName="ps_when" />
+                <ScalarProperty Name="ps_address" ColumnName="ps_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="AutoDealerModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_bet" ColumnName="p_bet" />
+                <ScalarProperty Name="p_salary" ColumnName="p_salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AutoDealerModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tariff">
+            <EntityTypeMapping TypeName="AutoDealerModel.Tariff">
+              <MappingFragment StoreEntitySet="Tariff">
+                <ScalarProperty Name="t_sum" ColumnName="t_sum" />
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+                <ScalarProperty Name="t_name" ColumnName="t_name" />
+                <ScalarProperty Name="t_enu" ColumnName="t_enu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,87 @@
+﻿<Window x:Class="AutoDealer.DealerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Автомобили" Height="500" Width="800" Background="Black">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">Автомобили</TextBlock>
+
+        <Button Grid.Row="2" HorizontalAlignment="Left" Click="btnBack_Click">Назад</Button>
+        <Button Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Click="btnExit_Click">Выйти</Button>
+        <!--<ComboBox Name="CBDealer" SelectedItem="{Binding Dealer,Mode=OneWayToSource}" Grid.Column="1" 
+                  DisplayMemberPath="D_NAME" Background="Aqua"  SelectedIndex="0" SelectedValuePath="id" 
+                   IsEditable="True" IsReadOnly="True" Selected="CMDealer_Selected"></ComboBox>-->
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin="5" Orientation="Horizontal">
+            <Button Content="Добавить" Click="btnAdd_click" HorizontalAlignment="Center"/>
+            <Button Content="Изменить" Click="btnEdit_click" HorizontalAlignment="Center"/>
+            <Button Content="Удалить" Click="btnDel_click" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False"
+                  x:Name="DGCar" Background="Gray" AlternatingRowBackground="LightGray" RowBackground="DarkGray">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding c_id}"/>
+                <DataGridTextColumn Header="Марка" Binding="{Binding c_mark}"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding c_name}" Width="*"/>
+                <DataGridTextColumn Header="Характеристики" Binding="{Binding c_specific}" Visibility="Hidden">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="photo" Binding="{Binding c_photo}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Тариф" Binding="{Binding c_tariff}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Доп.условия" Binding="{Binding c_as}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Доп.услуги" Binding="{Binding AddService.as_enu}"/>
+                <!--<DataGridTextColumn Header="Сотрудник" Binding="{Binding c_employee}"/>-->
+                <!--<DataGridTemplateColumn Header="Фото" Width="*">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding c_photo,Converter={StaticResource ByteArrayToBitmapImageConverter},
+                        Mode=OneWay}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>-->
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Подробнее" Click="btnPhoto_click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

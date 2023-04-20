@@ -1,0 +1,59 @@
+﻿<Window x:Class="AutoDealer.LogUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="Пользователи программы" Height="450" Width="600" WindowStartupLocation="CenterScreen" Background="Black">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">Пользователи программы</TextBlock>
+        <Button Grid.Row="2" HorizontalAlignment="Left" Click="btnBack_Click">Назад</Button>
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+            <Button Content="Добавить" Click="btnAdd_click" HorizontalAlignment="Center"/>
+            <Button Content="Изменить" Click="btnEdit_click" HorizontalAlignment="Center"/>
+            <Button Content="Удалить" Click="btnDel_click" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid Grid.ColumnSpan="3" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False"
+                  x:Name="dg_user" Background="Gray" AlternatingRowBackground="DarkGray" RowBackground="LightGray" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Gray" />
+                    <Setter Property="FontSize" Value="16" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding lu_id}"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Employee.e_all}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding lu_login}"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding lu_password}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

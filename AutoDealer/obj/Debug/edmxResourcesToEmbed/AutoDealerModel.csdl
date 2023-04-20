@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AutoDealerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_mark" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_specific" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="c_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="c_tariff" Type="Int32" Nullable="false" />
+    <Property Name="c_as" Type="Int32" Nullable="false" />
+    <Property Name="c_employee" Type="Int32" />
+    <NavigationProperty Name="AddService" Relationship="AutoDealerModel.fk_as_c" FromRole="Car" ToRole="AddService" />
+    <NavigationProperty Name="Client" Relationship="AutoDealerModel.fk_e_c" FromRole="Car" ToRole="Client" />
+    <NavigationProperty Name="Tariff" Relationship="AutoDealerModel.fk_t_c" FromRole="Car" ToRole="Tariff" />
+    <NavigationProperty Name="Contract" Relationship="AutoDealerModel.fk_t_con" FromRole="Car" ToRole="Contract" />
+    <NavigationProperty Name="Client1" Relationship="AutoDealerModel.fk_e_c1" FromRole="Car" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="AutoDealerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Employee" EntityType="AutoDealerModel.Employee" />
+    <EntitySet Name="LogUser" EntityType="AutoDealerModel.LogUser" />
+    <EntitySet Name="Position" EntityType="AutoDealerModel.Position" />
+    <AssociationSet Name="fk_loguser_empl" Association="AutoDealerModel.fk_loguser_empl">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="LogUser" EntitySet="LogUser" />
+    </AssociationSet>
+    <EntitySet Name="AddService" EntityType="AutoDealerModel.AddService" />
+    <EntitySet Name="BlackList" EntityType="AutoDealerModel.BlackList" />
+    <EntitySet Name="Client" EntityType="AutoDealerModel.Client" />
+    <EntitySet Name="Contract" EntityType="AutoDealerModel.Contract" />
+    <EntitySet Name="DriverLicense" EntityType="AutoDealerModel.DriverLicense" />
+    <EntitySet Name="Passport" EntityType="AutoDealerModel.Passport" />
+    <EntitySet Name="Tariff" EntityType="AutoDealerModel.Tariff" />
+    <AssociationSet Name="fk_as_c" Association="AutoDealerModel.fk_as_c">
+      <End Role="AddService" EntitySet="AddService" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="fk_bl_cl" Association="AutoDealerModel.fk_bl_cl">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="BlackList" EntitySet="BlackList" />
+    </AssociationSet>
+    <AssociationSet Name="fk_e_c" Association="AutoDealerModel.fk_e_c">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="fk_t_c" Association="AutoDealerModel.fk_t_c">
+      <End Role="Tariff" EntitySet="Tariff" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="fk_t_con" Association="AutoDealerModel.fk_t_con">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="fk_as_con" Association="AutoDealerModel.fk_as_con">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dl_cl" Association="AutoDealerModel.fk_dl_cl">
+      <End Role="DriverLicense" EntitySet="DriverLicense" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="fk_p_cl" Association="AutoDealerModel.fk_p_cl">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="fk_empl_pos1" Association="AutoDealerModel.fk_empl_pos1">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="fk_e_c1" Association="AutoDealerModel.fk_e_c1">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="e_id" />
+    </Key>
+    <Property Name="e_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="e_family" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="e_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="e_patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="e_birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="e_position" Type="Int32" Nullable="false" />
+    <Property Name="e_passport" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LogUser" Relationship="AutoDealerModel.fk_loguser_empl" FromRole="Employee" ToRole="LogUser" />
+    <NavigationProperty Name="Position" Relationship="AutoDealerModel.fk_empl_pos1" FromRole="Employee" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="LogUser">
+    <Key>
+      <PropertyRef Name="lu_id" />
+    </Key>
+    <Property Name="lu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lu_empl" Type="Int32" Nullable="false" />
+    <Property Name="lu_login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lu_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="AutoDealerModel.fk_loguser_empl" FromRole="LogUser" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="p_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="p_bet" Type="Double" Nullable="false" />
+    <Property Name="p_salary" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="AutoDealerModel.fk_empl_pos1" FromRole="Position" ToRole="Employee" />
+  </EntityType>
+  <Association Name="fk_loguser_empl">
+    <End Type="AutoDealerModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="AutoDealerModel.LogUser" Role="LogUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="e_id" />
+      </Principal>
+      <Dependent Role="LogUser">
+        <PropertyRef Name="lu_empl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AddService">
+    <Key>
+      <PropertyRef Name="as_id" />
+    </Key>
+    <Property Name="as_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="as_enu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="AutoDealerModel.fk_as_c" FromRole="AddService" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="BlackList">
+    <Key>
+      <PropertyRef Name="bl_id" />
+    </Key>
+    <Property Name="bl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bl_client" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="AutoDealerModel.fk_bl_cl" FromRole="BlackList" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="cl_id" />
+    </Key>
+    <Property Name="cl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cl_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cl_tel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cl_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cl_passport" Type="Int32" Nullable="false" />
+    <Property Name="cl_driver" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BlackList" Relationship="AutoDealerModel.fk_bl_cl" FromRole="Client" ToRole="BlackList" />
+    <NavigationProperty Name="Car" Relationship="AutoDealerModel.fk_e_c" FromRole="Client" ToRole="Car" />
+    <NavigationProperty Name="Contract" Relationship="AutoDealerModel.fk_as_con" FromRole="Client" ToRole="Contract" />
+    <NavigationProperty Name="DriverLicense" Relationship="AutoDealerModel.fk_dl_cl" FromRole="Client" ToRole="DriverLicense" />
+    <NavigationProperty Name="Passport" Relationship="AutoDealerModel.fk_p_cl" FromRole="Client" ToRole="Passport" />
+    <NavigationProperty Name="Car1" Relationship="AutoDealerModel.fk_e_c1" FromRole="Client" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="con_id" />
+    </Key>
+    <Property Name="con_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="con_long" Type="Int32" Nullable="false" />
+    <Property Name="con_if" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="con_cost" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="con_car" Type="Int32" Nullable="false" />
+    <Property Name="con_client" Type="Int32" Nullable="false" />
+    <Property Name="con_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Car" Relationship="AutoDealerModel.fk_t_con" FromRole="Contract" ToRole="Car" />
+    <NavigationProperty Name="Client" Relationship="AutoDealerModel.fk_as_con" FromRole="Contract" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="DriverLicense">
+    <Key>
+      <PropertyRef Name="dl_id" />
+    </Key>
+    <Property Name="dl_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dl_series" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="dl_number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="dl_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Client" Relationship="AutoDealerModel.fk_dl_cl" FromRole="DriverLicense" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ps_series" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ps_number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ps_whom" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ps_when" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ps_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="AutoDealerModel.fk_p_cl" FromRole="Passport" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Tariff">
+    <Key>
+      <PropertyRef Name="t_id" />
+    </Key>
+    <Property Name="t_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="t_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="t_enu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="AutoDealerModel.fk_t_c" FromRole="Tariff" ToRole="Car" />
+  </EntityType>
+  <Association Name="fk_as_c">
+    <End Type="AutoDealerModel.AddService" Role="AddService" Multiplicity="1" />
+    <End Type="AutoDealerModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddService">
+        <PropertyRef Name="as_id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="c_as" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_bl_cl">
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="AutoDealerModel.BlackList" Role="BlackList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cl_id" />
+      </Principal>
+      <Dependent Role="BlackList">
+        <PropertyRef Name="bl_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_e_c">
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="AutoDealerModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cl_id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="c_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_t_c">
+    <End Type="AutoDealerModel.Tariff" Role="Tariff" Multiplicity="1" />
+    <End Type="AutoDealerModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tariff">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="c_tariff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_t_con">
+    <End Type="AutoDealerModel.Car" Role="Car" Multiplicity="1" />
+    <End Type="AutoDealerModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="con_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_as_con">
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="AutoDealerModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cl_id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="con_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dl_cl">
+    <End Type="AutoDealerModel.DriverLicense" Role="DriverLicense" Multiplicity="1" />
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DriverLicense">
+        <PropertyRef Name="dl_id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="cl_driver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_p_cl">
+    <End Type="AutoDealerModel.Passport" Role="Passport" Multiplicity="1" />
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="cl_passport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_empl_pos1">
+    <End Type="AutoDealerModel.Position" Role="Position" Multiplicity="1" />
+    <End Type="AutoDealerModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="e_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_e_c1">
+    <End Type="AutoDealerModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="AutoDealerModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="cl_id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="c_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

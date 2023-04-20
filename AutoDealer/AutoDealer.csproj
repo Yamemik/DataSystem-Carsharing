@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0F24F75-86E1-4BC2-962E-5AC4556E9F3E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AutoDealer</RootNamespace>
+    <AssemblyName>AutoDealer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddEditAsWindow.xaml.cs">
+      <DependentUpon>AddEditAsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditBl.xaml.cs">
+      <DependentUpon>AddEditBl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditCar.xaml.cs">
+      <DependentUpon>AddEditCar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditClientWindow.xaml.cs">
+      <DependentUpon>AddEditClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditContractWindow.xaml.cs">
+      <DependentUpon>AddEditContractWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditDriverWindow.xaml.cs">
+      <DependentUpon>AddEditDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditEmpWindow.xaml.cs">
+      <DependentUpon>AddEditEmpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditPassportWindow.xaml.cs">
+      <DependentUpon>AddEditPassportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditPositionWindow.xaml.cs">
+      <DependentUpon>AddEditPositionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditTariffWindow.xaml.cs">
+      <DependentUpon>AddEditTariffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditUserWindow.xaml.cs">
+      <DependentUpon>AddEditUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddService.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerVM.cs" />
+    <Compile Include="ASWindow.xaml.cs">
+      <DependentUpon>ASWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorWindow.xaml.cs">
+      <DependentUpon>AuthorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BaseContent.cs" />
+    <Compile Include="BindDB.cs" />
+    <Compile Include="BlackList.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlWindow.xaml.cs">
+      <DependentUpon>BlWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Car.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientWindow.xaml.cs">
+      <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractWindow.xaml.cs">
+      <DependentUpon>ContractWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DriverLicense.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoContractWindow.xaml.cs">
+      <DependentUpon>InfoContractWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogUser.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogUserWindow.xaml.cs">
+      <DependentUpon>LogUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
+    <Compile Include="OnPropertyChangedClass.cs" />
+    <Compile Include="Passport.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PassportAndDriverClass.cs" />
+    <Compile Include="PhotoCarWindow.xaml.cs">
+      <DependentUpon>PhotoCarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionWindow.xaml.cs">
+      <DependentUpon>PositionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionsContent.cs" />
+    <Compile Include="QuestionsUC.xaml.cs">
+      <DependentUpon>QuestionsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionVM.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="RuleCarWindow.xaml.cs">
+      <DependentUpon>RuleCarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialPage.xaml.cs">
+      <DependentUpon>SpecialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusAutoWindow.xaml.cs">
+      <DependentUpon>StatusAutoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tariff.cs">
+      <DependentUpon>AutoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TariffWindow.xaml.cs">
+      <DependentUpon>TariffWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestClass.cs" />
+    <Compile Include="TestVM.cs" />
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TitleContent.cs" />
+    <Compile Include="TitleUC.xaml.cs">
+      <DependentUpon>TitleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TotalContent.cs" />
+    <Compile Include="TotalUC.xaml.cs">
+      <DependentUpon>TotalUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel.cs" />
+    <Page Include="AddEditAsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditBl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditEmpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditPassportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditPositionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditTariffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ASWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DealerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DealerWindow.xaml.cs">
+      <DependentUpon>DealerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PhotoCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RuleCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpecialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatusAutoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TariffWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TitleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TotalUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="AutoDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutoDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AutoDB.edmx.diagram">
+      <DependentUpon>AutoDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CarImage\1.jpg" />
+    <Resource Include="CarImage\10.png" />
+    <Resource Include="CarImage\11.png" />
+    <Resource Include="CarImage\12.png" />
+    <Resource Include="CarImage\13.jpg" />
+    <Resource Include="CarImage\14.jpg" />
+    <Resource Include="CarImage\15.jpg" />
+    <Resource Include="CarImage\16.jpg" />
+    <Resource Include="CarImage\17.jpg" />
+    <Resource Include="CarImage\18.jpg" />
+    <Resource Include="CarImage\19.jpg" />
+    <Resource Include="CarImage\2.jpg" />
+    <Resource Include="CarImage\20.jpg" />
+    <Resource Include="CarImage\21.jpg" />
+    <Resource Include="CarImage\22.png" />
+    <Resource Include="CarImage\23.jpg" />
+    <Resource Include="CarImage\24.png" />
+    <Resource Include="CarImage\25.jpeg" />
+    <Resource Include="CarImage\26.jpg" />
+    <Resource Include="CarImage\27.jpg" />
+    <Resource Include="CarImage\3.jpg" />
+    <Resource Include="CarImage\4.jpg" />
+    <Resource Include="CarImage\5.jpg" />
+    <Resource Include="CarImage\6.jpg" />
+    <Resource Include="CarImage\7.png" />
+    <Resource Include="CarImage\8.png" />
+    <Resource Include="CarImage\9.png" />
+    <Resource Include="CarImage\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AutoDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoDB.edmx</DependentUpon>
+      <LastGenOutput>AutoDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AutoDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutoDB.edmx</DependentUpon>
+      <LastGenOutput>AutoDB.cs</LastGenOutput>
+    </Content>
+    <Resource Include="CarImage\bg.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

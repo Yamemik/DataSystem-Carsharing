@@ -1,0 +1,65 @@
+﻿<Window x:Class="AutoDealer.AddEditDriverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="AddEditDriverWindow" Height="300" Width="600" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="CarImage\bg.jpg" x:Name="iB_Background"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="SpellCheck.IsEnabled" Value="True"/>
+            <Setter Property="Language" Value="ru-ru"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="AntiqueWhite"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="id"></TextBlock>
+        <TextBlock Text="Серия" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Номер" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Когда выдан" Grid.Row="3"></TextBlock>
+
+        <TextBox x:Name="id" Text="{Binding dl_id}" Grid.Column="1" IsReadOnly="True"></TextBox>
+        <TextBox x:Name="series" Text="{Binding dl_series}" Grid.Column="1" Grid.Row="1" MaxLength="4"></TextBox>
+        <TextBox x:Name="number" Text="{Binding dl_number}" Grid.Column="1" Grid.Row="2" MaxLength="6"></TextBox>
+        <DatePicker x:Name="when" SelectedDate="{Binding dl_date}" Grid.Column="1" Grid.Row="3" Margin="10"></DatePicker>
+
+        <Button x:Name="BtnSave" Content="Сохранить" Click="btnSave_click" Grid.Row="7" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnCancel" Content="Отменить" Click="BtnCancel_click" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="AutoDealer.QuestionsUC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AutoDealer"
+             mc:Ignorable="d"  d:DataContext="{x:Type local:QuestionsContent}"
+             d:DesignHeight="200" d:DesignWidth="200" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" Text="{Binding CurrentQuestion.Text}" Background="LightCyan" TextWrapping="Wrap"/>
+            <ContentControl Content="{Binding CurrentQuestion}" Grid.Row="1" Grid.ColumnSpan="2">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type local:QuestionRadioButtonVM}">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding Answers}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type local:AnswerVM}">
+                                        <RadioButton GroupName="Answer" Content="{Binding Text}" IsChecked="{Binding IsRightView}"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type local:QuestionCheckBoxVM}">
+                        <ItemsControl ItemsSource="{Binding Answers}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:AnswerVM}">
+                                    <CheckBox Content="{Binding Text}" IsChecked="{Binding IsRightView}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ContentControl.Resources>
+
+            </ContentControl>
+            <Button Background="Coral" x:Name="btPrev" Grid.Row="2" Content="Предыдущий" Command="{Binding JumpQuestionCommand}" CommandParameter="-1"/>
+            <Button Background="Coral" x:Name="btNext" Grid.Row="2" Grid.Column="1" Content="Следующий" Command="{Binding JumpQuestionCommand}" CommandParameter="1"/>
+        </Grid>
+        <Button Grid.Row="1" Background="Red" Content="Закончить тест" Command="{Binding JumpCommand}"/>
+    </Grid>
+</UserControl>

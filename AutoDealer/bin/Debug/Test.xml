@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test>  
+  <NameTest>Тест по автомобилям</NameTest>  
+  <Questions>    
+    <Question IsOnlyOne="true">
+      <Text>Из каких основных частей состоит автомобиль</Text>
+      <Answers>
+        <Answer IsRight="true">Двигатель, кузов, шасси.</Answer>
+        <Answer IsRight="false">Двигатель, трансмиссия, кузов.</Answer>
+      </Answers>
+    </Question>    
+    <Question IsOnlyOne="true">
+      <Text>Виды двигателей внутреннего сгорания в зависимости от типа топлива</Text>
+      <Answers>
+        <Answer IsRight="false">Бензин, сжиженный газ, дизельное топливо</Answer>
+        <Answer IsRight="true">Жидкое, газообразное, комбинированное</Answer>
+        <Answer IsRight="false">Дизельное топливо, твердое топливо, бензин</Answer>
+      </Answers>
+    </Question>    
+    <Question IsOnlyOne="false">
+      <Text>Какие марки автомобилей существуют</Text>
+      <Answers>
+        <Answer IsRight="true">Audi </Answer>
+        <Answer IsRight="false">LG</Answer>
+        <Answer IsRight="true">Toyota</Answer>
+        <Answer IsRight="false">Nintendo</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Перечислите основные детали ДВС</Text>
+      <Answers>
+        <Answer IsRight="false">Коленчатый вал, задний мост, поршень, блок цилиндров</Answer>
+        <Answer IsRight="true">Шатун, коленчатый вал, поршень, цилиндр</Answer>
+        <Answer IsRight="false">Трансмиссия, головка блока, распределительный вал</Answer>
+        <Answer IsRight="false">Поршень, головка блока, распределительный вал</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Что называется литражом двигателя</Text>
+      <Answers>
+        <Answer IsRight="false">Количество цилиндров в двигателе</Answer>
+        <Answer IsRight="true">Сумма рабочих объемов всех цилиндров двигателя</Answer>
+        <Answer IsRight="false">Сумма полных объемов всех цилиндров двигателя</Answer>
+        <Answer IsRight="false">Размер головки блока</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Что поступает в цилиндр карбюраторного двигателя при такте «впуск»</Text>
+      <Answers>
+        <Answer IsRight="false">Очищенный газ</Answer>
+        <Answer IsRight="true">Смесь бензина и воздуха</Answer>
+        <Answer IsRight="false">Смесь дизельного топлива и воздуха</Answer>
+        <Answer IsRight="false">Сжатый, очищенный воздух</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>За счет чего воспламеняется горючая смесь в дизельном двигателе</Text>
+      <Answers>
+        <Answer IsRight="false">Сжатый, очищенный воздух</Answer>
+        <Answer IsRight="true">За счет самовоспламенения</Answer>
+        <Answer IsRight="false">За счет свечи накаливания</Answer>
+        <Answer IsRight="false">За счет давления сжатия</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Через сколько километров пробега автомобиля, необходимо производить замену масла</Text>
+      <Answers>
+        <Answer IsRight="false">Через 5 000 км</Answer>
+        <Answer IsRight="true">Через 10 000 км</Answer>
+        <Answer IsRight="false">Через 12 000-14 000км</Answer>
+        <Answer IsRight="false">Никогда</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Назначение термостата</Text>
+      <Answers>
+        <Answer IsRight="false">Ограничивает подачу жидкости в радиатор</Answer>
+        <Answer IsRight="true">Ускоряет прогрев двигателя и поддерживает оптимальную температуру</Answer>
+        <Answer IsRight="false">Снижает давление в системе охлаждения</Answer>
+        <Answer IsRight="false">Служит для сообщения картера двигателя с камерой сгорания</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Что входит в систему питания дизельного двигателя</Text>
+      <Answers>
+        <Answer IsRight="false">Топливный бак, топливоподкачивающий насос, топливный фильтр, ТНВД, форсунки, воздушный фильтр.</Answer>
+        <Answer IsRight="true">Топливный фильтр, форсунки, воздушный фильтр, топливный бак</Answer>
+        <Answer IsRight="false">Топливоподкачивающий насос, топливный фильтр, форсунки, воздушный фильтр</Answer>
+        <Answer IsRight="false">Дизель</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Где образуется рабочая смесь в дизельном двигателе</Text>
+      <Answers>
+        <Answer IsRight="false">В камере сгорания</Answer>
+        <Answer IsRight="true">В цилиндре двигателя</Answer>
+        <Answer IsRight="false">В блоке цилиндров</Answer>
+        <Answer IsRight="false">Во впускном трубопроводе при подаче топлива форсункой</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Какой производитель выпускал больше всего моделей со "звериными" названиями?</Text>
+      <Answers>
+        <Answer IsRight="false">ГАЗ</Answer>
+        <Answer IsRight="true">Ford</Answer>
+        <Answer IsRight="false">Jaguar</Answer>
+        <Answer IsRight="false">Subaru</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Какое животное изначально фигурировало в официальном названии одной из моделей Volkswagen?</Text>
+      <Answers>
+        <Answer IsRight="false">Кролик</Answer>
+        <Answer IsRight="true">Жук</Answer>
+        <Answer IsRight="false">Собака</Answer>
+        <Answer IsRight="false">Лошадь</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>В какой социалистической стране выпускали автомобиль с «лошадиным» названием?</Text>
+      <Answers>
+        <Answer IsRight="false">Чехословакия</Answer>
+        <Answer IsRight="true">Польша</Answer>
+        <Answer IsRight="false">Венгрия</Answer>
+        <Answer IsRight="false">Болгария</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>У кого из производителей на эмблеме не нарисована лошадь?</Text>
+      <Answers>
+        <Answer IsRight="false">Ferrary</Answer>
+        <Answer IsRight="true">Lamborghini</Answer>
+        <Answer IsRight="false">Porsche</Answer>
+        <Answer IsRight="false">Iran Khodro</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Какое из этих названий обозначает птицу?</Text>
+      <Answers>
+        <Answer IsRight="false">Чайка</Answer>
+        <Answer IsRight="true">Все перечисленное</Answer>
+        <Answer IsRight="false">Bluebird</Answer>
+        <Answer IsRight="false">Thunderbird</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Этот производитель суперкаров неравнодушен к тиграм и крокодилам</Text>
+      <Answers>
+        <Answer IsRight="false">Ferrary</Answer>
+        <Answer IsRight="true">Porsche</Answer>
+        <Answer IsRight="false">Lamborghini</Answer>
+        <Answer IsRight="false">Dodge</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Сколько лет можно использовать один и тот же комплект колес?</Text>
+      <Answers>
+        <Answer IsRight="false">Три</Answer>
+        <Answer IsRight="true">Десять</Answer>
+        <Answer IsRight="false">Пять</Answer>
+        <Answer IsRight="false">До полного износа</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Что значит надпись «M+S» на боковине шины?</Text>
+      <Answers>
+        <Answer IsRight="false">Скорость+комфорт</Answer>
+        <Answer IsRight="true">Грязь+снег</Answer>
+        <Answer IsRight="false">Мощь+сила</Answer>
+        <Answer IsRight="false">Мода+спорт</Answer>
+      </Answers>
+    </Question>
+    <Question IsOnlyOne="true">
+      <Text>Что значит буква «R» в обозначении колеса?</Text>
+      <Answers>
+        <Answer IsRight="false">Радиус</Answer>
+        <Answer IsRight="true">Тип шины</Answer>
+        <Answer IsRight="false">Сезонность</Answer>
+        <Answer IsRight="false">Ранфлэт</Answer>
+      </Answers>
+    </Question>
+  </Questions>
+</Test>

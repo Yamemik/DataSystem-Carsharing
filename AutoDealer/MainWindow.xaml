@@ -1,0 +1,71 @@
+﻿<Window x:Class="AutoDealer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="Система для каршеринга автомобилей" WindowState="Normal" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="CarImage\bg.jpg" x:Name="iB_Background"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="app">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition IsEnabled="False"/>
+            <RowDefinition Height="50" IsEnabled="False"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="service" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 50 0 0" Visibility="Hidden">
+            <TextBlock FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="LightGray" FontFamily="TimesNewRoman" FontWeight="Bold" TextDecorations="Underline" Margin="0 0 0 30">Обслуживание</TextBlock>
+            <Button Content="Персонал" Click="btnEmployee_click"/>
+            <Button Content="Тарифы" Click="btnRule_click"/>
+            <Button Content="Доп.услуги" Click="btnRepair_click"/>
+            <Button Content="Должности" Click="btnLaw_click"/>
+        </StackPanel>
+        <StackPanel x:Name="rental" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 50 0 0" Visibility="Hidden">
+            <TextBlock FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="LightGray" FontFamily="TimesNewRoman" FontWeight="Bold" TextDecorations="Underline" Margin="0 0 0 30">Аренда</TextBlock>
+            <Button Content="Аренда авто" Click="btnDoc_click"/>
+            <Button Content="Клиенты" Click="btnClient_click"/>
+            <Button Content="Черный список" Click="btnBlackList_click"/>
+        </StackPanel>
+        <StackPanel Visibility="Hidden" x:Name="car" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 50 0 0">
+            <TextBlock FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="LightGray" FontFamily="TimesNewRoman" FontWeight="Bold" TextDecorations="Underline" Margin="0 0 0 30">Автомобили</TextBlock>
+            <Button Content="Список" Click="btnDB_Click"/>
+            <Button Content="Свободные авто" Click="btnDBAccess_Click"/>
+            <Button Content="Правила" Click="btnRuleCar_click"/>
+        </StackPanel>
+        <StackPanel Visibility="Hidden" x:Name="adm" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 50 0 0">
+            <TextBlock FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="LightGray" FontFamily="TimesNewRoman" FontWeight="Bold" TextDecorations="Underline" Margin="0 0 0 30">Администрирование</TextBlock>
+            <Button Content="Пользователи" Click="btnUser_click"/>
+            <Button Content="Тест" Click="btnTest_Click"/>
+        </StackPanel>
+        <Button Content="Войти" Click="btnEntry" x:Name="entry" Background="DarkMagenta"/>
+        <Button Content="Выйти" x:Name="exit" Click="BtnEx_click" Background="DarkSlateBlue" Grid.Column="1"/>
+        <TextBox x:Name="userName" Grid.ColumnSpan="2" Grid.Column="2" Background="Black" Foreground="LightGray" Text="Вы не авторизованы!"
+                 FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Button Content="Выход" Click="btnExit_Click" Grid.Row="2" Grid.Column="3"/>
+        <Button Content="О Программе" Click="btnAbout_Click" Grid.Row="2"/>
+    </Grid>
+</Window>

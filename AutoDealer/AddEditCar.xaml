@@ -1,0 +1,77 @@
+﻿<Window x:Class="AutoDealer.AddEditCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="Добавление/редактирование автомобилей" Height="450" Width="600" WindowStyle="ToolWindow">
+    <Window.Background>
+        <ImageBrush ImageSource="CarImage\bg.jpg" x:Name="iB_Background"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="SpellCheck.IsEnabled" Value="True"/>
+            <Setter Property="Language" Value="ru-ru"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="AntiqueWhite"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="id" ></TextBlock>
+        <TextBlock Text="Марка" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Модель" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Характеристики" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Фото" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Тариф" Grid.Row="5"></TextBlock>
+        <TextBlock Text="Доп.услуги" Grid.Row="6"></TextBlock>
+        
+        <TextBox x:Name="id" Text="{Binding c_id}" Grid.Column="1"></TextBox>
+        <TextBox x:Name="mark" Text="{Binding c_mark}" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBox x:Name="name" Text="{Binding c_name}" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBox x:Name="specific" Text="{Binding c_specific}" Grid.Column="1" Grid.Row="3"></TextBox>
+        <Image Source="{Binding c_photo}" Grid.Column="1" Grid.Row="4" x:Name="img_car"></Image>
+        <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Content="add" Click="btnAddImg_click"/>
+        <ComboBox ItemsSource="{Binding Tariff}" SelectedItem="{Binding Tariff}" Grid.Column="1" Grid.Row="5" Margin="10" x:Name="comboTariff"
+                  DisplayMemberPath="t_name"></ComboBox>
+        <ComboBox ItemsSource="{Binding AddService}" SelectedItem="{Binding AddService}" Grid.Column="1" Grid.Row="6"  Margin="10" x:Name="comboServ" DisplayMemberPath="as_enu"></ComboBox>
+        <!--<TextBox x:Name="emp" Text="{Binding c_employee}" Grid.Column="1" Grid.Row="7"></TextBox>-->
+        
+        <Button x:Name="BtnSave" Content="Сохранить" Click="btnSave_click" Grid.Row="8" HorizontalAlignment="Left"/>
+        <Button x:Name="BtnCancel" Content="Отменить" Click="BtnCancel_click" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left"/>
+
+    </Grid>
+</Window>

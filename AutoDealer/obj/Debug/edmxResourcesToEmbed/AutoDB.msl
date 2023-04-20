@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AutoDealerModelContainer" CdmEntityContainer="AutoDealerEntities1">
+    <EntitySetMapping Name="AddService">
+      <EntityTypeMapping TypeName="AutoDealerModel.AddService">
+        <MappingFragment StoreEntitySet="AddService">
+          <ScalarProperty Name="as_sum" ColumnName="as_sum" />
+          <ScalarProperty Name="as_id" ColumnName="as_id" />
+          <ScalarProperty Name="as_enu" ColumnName="as_enu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlackList">
+      <EntityTypeMapping TypeName="AutoDealerModel.BlackList">
+        <MappingFragment StoreEntitySet="BlackList">
+          <ScalarProperty Name="bl_id" ColumnName="bl_id" />
+          <ScalarProperty Name="bl_client" ColumnName="bl_client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car">
+      <EntityTypeMapping TypeName="AutoDealerModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_mark" ColumnName="c_mark" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="c_specific" ColumnName="c_specific" />
+          <ScalarProperty Name="c_photo" ColumnName="c_photo" />
+          <ScalarProperty Name="c_tariff" ColumnName="c_tariff" />
+          <ScalarProperty Name="c_as" ColumnName="c_as" />
+          <ScalarProperty Name="c_employee" ColumnName="c_employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="AutoDealerModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="cl_id" ColumnName="cl_id" />
+          <ScalarProperty Name="cl_name" ColumnName="cl_name" />
+          <ScalarProperty Name="cl_tel" ColumnName="cl_tel" />
+          <ScalarProperty Name="cl_address" ColumnName="cl_address" />
+          <ScalarProperty Name="cl_passport" ColumnName="cl_passport" />
+          <ScalarProperty Name="cl_driver" ColumnName="cl_driver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract">
+      <EntityTypeMapping TypeName="AutoDealerModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="con_dateend" ColumnName="con_dateend" />
+          <ScalarProperty Name="con_sum" ColumnName="con_sum" />
+          <ScalarProperty Name="con_id" ColumnName="con_id" />
+          <ScalarProperty Name="con_long" ColumnName="con_long" />
+          <ScalarProperty Name="con_if" ColumnName="con_if" />
+          <ScalarProperty Name="con_cost" ColumnName="con_cost" />
+          <ScalarProperty Name="con_car" ColumnName="con_car" />
+          <ScalarProperty Name="con_client" ColumnName="con_client" />
+          <ScalarProperty Name="con_date" ColumnName="con_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverLicense">
+      <EntityTypeMapping TypeName="AutoDealerModel.DriverLicense">
+        <MappingFragment StoreEntitySet="DriverLicense">
+          <ScalarProperty Name="dl_id" ColumnName="dl_id" />
+          <ScalarProperty Name="dl_series" ColumnName="dl_series" />
+          <ScalarProperty Name="dl_number" ColumnName="dl_number" />
+          <ScalarProperty Name="dl_date" ColumnName="dl_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="AutoDealerModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+          <ScalarProperty Name="e_family" ColumnName="e_family" />
+          <ScalarProperty Name="e_name" ColumnName="e_name" />
+          <ScalarProperty Name="e_patronymic" ColumnName="e_patronymic" />
+          <ScalarProperty Name="e_birthday" ColumnName="e_birthday" />
+          <ScalarProperty Name="e_position" ColumnName="e_position" />
+          <ScalarProperty Name="e_passport" ColumnName="e_passport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogUser">
+      <EntityTypeMapping TypeName="AutoDealerModel.LogUser">
+        <MappingFragment StoreEntitySet="LogUser">
+          <ScalarProperty Name="lu_id" ColumnName="lu_id" />
+          <ScalarProperty Name="lu_empl" ColumnName="lu_empl" />
+          <ScalarProperty Name="lu_login" ColumnName="lu_login" />
+          <ScalarProperty Name="lu_password" ColumnName="lu_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport">
+      <EntityTypeMapping TypeName="AutoDealerModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="ps_series" ColumnName="ps_series" />
+          <ScalarProperty Name="ps_number" ColumnName="ps_number" />
+          <ScalarProperty Name="ps_whom" ColumnName="ps_whom" />
+          <ScalarProperty Name="ps_when" ColumnName="ps_when" />
+          <ScalarProperty Name="ps_address" ColumnName="ps_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="AutoDealerModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_bet" ColumnName="p_bet" />
+          <ScalarProperty Name="p_salary" ColumnName="p_salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AutoDealerModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tariff">
+      <EntityTypeMapping TypeName="AutoDealerModel.Tariff">
+        <MappingFragment StoreEntitySet="Tariff">
+          <ScalarProperty Name="t_sum" ColumnName="t_sum" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="t_name" ColumnName="t_name" />
+          <ScalarProperty Name="t_enu" ColumnName="t_enu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

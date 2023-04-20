@@ -1,0 +1,63 @@
+﻿<Window x:Class="AutoDealer.RuleCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoDealer"
+        mc:Ignorable="d"
+        Title="Правила" Height="300" Width="500" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
+    <Window.Background>
+        <ImageBrush ImageSource="CarImage\bg.jpg" x:Name="iB_Background"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">Правила</TextBlock>
+        <TextBox IsReadOnly="True" x:Name="login" Grid.Column="1" HorizontalAlignment="Center" Height="150" Width="400" Grid.Row="1"
+                   FontFamily="TimesNewRoman" Foreground="Black" FontSize="14" Background="WhiteSmoke" TextWrapping="Wrap"
+                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+            Во всех машинах запрещено:
+Курить.
+Перевозить пачкающие, опасные и взрывчатые предметы и вещества.
+Перевозить мелких животных без специальных сумок-переносок.
+Перевозить крупногабаритные предметы и крупных животных в любых машинах, кроме фургонов.
+Правила использования фургонов:
+В салоне Volkswagen Transporter Kombi могут находиться водитель и пять пассажиров, в остальных фургонах — водитель и два пассажира.
+Для перевозки грузов нельзя использовать передние сиденья.
+Груз должен быть хорошо закреплен ремнями-стяжками, которые находятся в кузове. Вы также можете использовать свои приспособления для крепления.
+Нельзя перевозить груз тяжелее 500 кг.
+Нельзя перевозить груз, который не помещается в кузов.
+Нельзя размещать груз на крыше.
+Правила использования микроавтобусов:
+В микроавтобусе могут находиться 8 или 9 человек (зависит от модели): водитель, один пассажир рядом с ним и шесть или семь пассажиров в салоне. Точное количество мест можно посмотреть на карточке микроавтобуса в приложении.
+
+Правила использования детского кресла
+Кресла предназначены для детей в возрасте от 9 месяцев до 12 лет:
+для ребенка с 9 месяцев до 3 лет нужно использовать приставной столик (подушку), который идет в комплекте;
+ребенка с 4 до 7 лет нужно зафиксировать в кресле сверху штатным ремнем;
+по закону ребенок старше 7 лет может ехать сзади, закрепленный штатным ремнем безопасности, без кресла, но мы рекомендуем использовать бустер.
+        </TextBox>
+
+        <Button x:Name="BtnCancel" Content="Закрыть" Click="BtnCancel_click" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

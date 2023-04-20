@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c50eca36344a4cf78b6e45f5a93e0900" Name="Diagram1">
+        <EntityTypeShape EntityType="AutoDealerModel.AddService" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.BlackList" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Car" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Client" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Contract" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.DriverLicense" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Employee" Width="1.5" PointX="11" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.LogUser" Width="1.5" PointX="13.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Passport" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Position" Width="1.5" PointX="8.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoDealerModel.Tariff" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="AutoDealerModel.fk_as_c" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_bl_cl" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_t_c" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_t_con" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_as_con" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_dl_cl" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_p_cl" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_empl_pos" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoDealerModel.fk_loguser_empl" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
